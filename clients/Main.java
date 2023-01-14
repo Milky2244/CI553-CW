@@ -85,6 +85,28 @@ class Main
     model.addObserver( view );       // Add observer to the model
     window.setVisible(true);         // start Screen
   }
+  private void startPlayMusic() {
+
+    UIManager UI=new UIManager();                                     // Opens new UI manager for JOptionpane
+    UI.put("OptionPane.background", Color.decode("#ffd59a"));    // Sets JOptionpane UI colour
+    UI.put("Panel.background", Color.decode("#ffd59a"));
+
+    JOptionPane.showMessageDialog(null,"Welcome :)"); // Sets JOptionpane message
+
+    try {
+      File musicPath = new File("images/ambience.wav"); // Sets filepath for ambience
+      if (musicPath.exists()) {                                                      // Checks if filepath is valid
+        AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);   // Creates input stream
+        Clip Ambience = AudioSystem.getClip();
+        Ambience.loop(Clip.LOOP_CONTINUOUSLY);    // sets clip to loop forever
+        Ambience.open(audioInput);                // opens clip
+        Ambience.start();                         // starts clip
+      }
+    }
+    catch (Exception e) {
+      System.out.println("Ambience failed to load"); // displays error message if and errors occur in method
+    }
+  }
   public void startShopGUI_MVC(MiddleFactory mlf) {
     JFrame window = new JFrame();
     window.getContentPane().setBackground(Color.decode("#ffd59a"));
