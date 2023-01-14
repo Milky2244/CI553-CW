@@ -20,7 +20,9 @@ public class InclusiveView implements Observer
     private OrderProcessing theOrder     = null;
     private InclusiveController cont= null;
 
-
+    public static JButton returnBtPicked() {
+        return theBtPicked;
+    }
     private static final String COLLECT = "Collect";
     private final JLabel      CollectionAction  = new JLabel();
     private final JTextField  CollectionInput   = new JTextField();

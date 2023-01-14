@@ -84,7 +84,15 @@ public class ShopView implements Observer {
    * @param x   x-coordinate of position of window on screen
    * @param y   y-coordinate of position of window on screen
    */
-
+  public static JButton returnShopBtCheck() {
+    return theBtCheck;
+  }
+  public static JButton returnBtBought() {
+    return theBtBought;
+  }
+  public static JButton returnBtBuy() {
+    return theBtBuy;
+  }
 
 
   public ShopView(RootPaneContainer rpc, MiddleFactory mf, int x, int y) {

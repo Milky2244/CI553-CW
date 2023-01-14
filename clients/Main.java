@@ -91,7 +91,6 @@ class Main
     window.setTitle("Shop Client MVC");
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     Dimension pos = PosOnScrn.getPos();
-
     ShopModel model = new ShopModel(mlf);
     ShopView view = new ShopView(window, mlf, pos.width, pos.height);
     ShopController cont = new ShopController(model, view);

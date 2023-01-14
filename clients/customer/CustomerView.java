@@ -46,7 +46,10 @@ public class CustomerView implements Observer
    * @param x     x-cordinate of position of window on screen 
    * @param y     y-cordinate of position of window on screen  
    */
-  
+  public static JButton returnCustomerBtClear() {
+    return theBtClear;
+  }
+
   public CustomerView( RootPaneContainer rpc, MiddleFactory mf, int x, int y )
   {
     try                                             // 
