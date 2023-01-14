@@ -1,4 +1,7 @@
 package clients;
+import clients.CashierInclusiveWindow.ShopController;
+import clients.CashierInclusiveWindow.ShopModel;
+import clients.CashierInclusiveWindow.ShopView;
 import clients.backDoor.BackDoorController;
 import clients.backDoor.BackDoorModel;
 import clients.backDoor.BackDoorView;
@@ -80,6 +83,22 @@ class Main
     view.setController( cont );
 
     model.addObserver( view );       // Add observer to the model
+    window.setVisible(true);         // start Screen
+  }
+  public void startShopGUI_MVC(MiddleFactory mlf) {
+    JFrame window = new JFrame();
+    window.getContentPane().setBackground(Color.decode("#ffd59a"));
+    window.setTitle("Shop Client MVC");
+    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    Dimension pos = PosOnScrn.getPos();
+
+    ShopModel model = new ShopModel(mlf);
+    ShopView view = new ShopView(window, mlf, pos.width, pos.height);
+    ShopController cont = new ShopController(model, view);
+    view.setController(cont);
+
+    model.addObserver(view);       // Add observer to the model
+
     window.setVisible(true);         // start Screen
   }
   public void startInclusiveGUI_MVC(MiddleFactory mlf) {
