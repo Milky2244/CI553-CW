@@ -5,6 +5,9 @@ import clients.backDoor.BackDoorView;
 import clients.cashier.CashierController;
 import clients.cashier.CashierModel;
 import clients.cashier.CashierView;
+import clients.clientInclusiveWindow.InclusiveController;
+import clients.clientInclusiveWindow.InclusiveModel;
+import clients.clientInclusiveWindow.InclusiveView;
 import clients.collection.CollectController;
 import clients.collection.CollectModel;
 import clients.collection.CollectView;
@@ -79,6 +82,22 @@ class Main
     model.addObserver( view );       // Add observer to the model
     window.setVisible(true);         // start Screen
   }
+  public void startInclusiveGUI_MVC(MiddleFactory mlf) {
+    JFrame window = new JFrame();
+    window.getContentPane().setBackground(Color.decode("#ffd59a"));
+    window.setTitle("Inclusive MVC");
+    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    Dimension pos = PosOnScrn.getPos();
+
+    InclusiveModel model = new InclusiveModel(mlf);
+    InclusiveView view = new InclusiveView(window, mlf, pos.width, pos.height);
+    InclusiveController cont = new InclusiveController(model, view);
+    view.setController(cont);
+
+    model.addObserver(view);       // Add observer to the model
+    window.setVisible(true);         // Make window visible
+  }
+
 
   /**
    * start the cashier client
